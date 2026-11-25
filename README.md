@@ -43,3 +43,18 @@ An attack surface map of OWASP Juice Shop running in an isolated local lab (Virt
 ## Scope
 
 Own lab only, no external targets, synthetic data. This project is mapping and documentation only; nothing was attacked or exploited. The lab boundaries are defined in the Scope of Work in the `vuln-lab-scope` repository.
+
+## How to Reproduce
+
+1. Start the `vuln-lab` VM in VirtualBox and log in.
+2. Start the app with `sudo docker start juice-shop` and wait about a minute.
+3. Open http://localhost:8080 in a browser on the host.
+4. Press F12, open the Network tab, choose the Fetch/XHR filter and reload the page to see the requests listed in section 2A of the map.
+5. Visit the login, registration, search and feedback pages to see the input fields listed in section 1.
+6. Shut the lab down with `sudo poweroff` when finished.
+
+## Limitations
+
+- Endpoints in section 2A were observed in DevTools; those in section 2B come from Juice Shop's standard structure and were not exercised.
+- Only the pages and requests seen while browsing were mapped, so some features may be missing.
+- No testing or exploitation was carried out.
